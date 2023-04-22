@@ -1,0 +1,158 @@
+Checks: >
+        -*,clang-diagnostic-*,llvm-*,misc-*,-misc-unused-parameters,-misc-non-private-member-variables-in-classes,-misc-no-recursion,readability-identifier-naming
+        bugprone-argument-comment,
+        bugprone-assert-side-effect,
+        bugprone-branch-clone,
+        bugprone-copy-constructor-init,
+        bugprone-dangling-handle,
+        bugprone-dynamic-static-initializers,
+        bugprone-macro-parentheses,
+        bugprone-macro-repeated-side-effects,
+        bugprone-misplaced-widening-cast,
+        bugprone-move-forwarding-reference,
+        bugprone-multiple-statement-macro,
+        bugprone-suspicious-semicolon,
+        bugprone-swapped-arguments,
+        bugprone-terminating-continue,
+        bugprone-unused-raii,
+        bugprone-unused-return-value,
+        misc-redundant-expression,
+        misc-static-assert,
+        misc-unused-parameters,
+        misc-unused-using-decls,
+        modernize-use-bool-literals,
+        modernize-loop-convert,
+        modernize-make-unique,
+        modernize-raw-string-literal,
+        modernize-use-equals-default,
+        modernize-use-default-member-init,
+        modernize-use-emplace,
+        modernize-use-nullptr,
+        modernize-use-override,
+        modernize-use-using,
+        performance-for-range-copy,
+        performance-implicit-conversion-in-loop,
+        performance-inefficient-algorithm,
+        performance-inefficient-vector-operation,
+        performance-move-const-arg,
+        performance-no-automatic-move,
+        performance-trivially-destructible,
+        performance-unnecessary-copy-initialization,
+        performance-unnecessary-value-param,
+        readability-avoid-const-params-in-decls,
+        readability-const-return-type,
+        readability-container-size-empty,
+        readability-inconsistent-declaration-parameter-name,
+        readability-misleading-indentation,
+        readability-redundant-control-flow,
+        readability-simplify-boolean-expr,
+        readability-simplify-subscript-expr,
+        readability-use-anyofallof
+
+CheckOptions:
+  - key:             readability-identifier-naming.AbstractClassCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ClassCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ClassConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ClassMemberCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ClassMethodCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstantMemberCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstantParameterCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstantPointerParameterCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstexprFunctionCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstexprMethodCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ConstexprVariableCase
+    value:           camelCase
+  - key:             readability-identifier-naming.EnumCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.EnumConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.FunctionCase
+    value:           camelCase
+  - key:             readability-identifier-naming.GetConfigPerFile
+    value:           true
+  - key:             readability-identifier-naming.GlobalConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.GlobalConstantPointerCase
+    value:           camelCase
+  - key:             readability-identifier-naming.GlobalFunctionCase
+    value:           camelCase
+  - key:             readability-identifier-naming.GlobalPointerCase
+    value:           camelCase
+  - key:             readability-identifier-naming.GlobalVariableCase
+    value:           camelCase
+  - key:             readability-identifier-naming.IgnoreMainLikeFunctions
+    value:           1
+  - key:             readability-identifier-naming.InlineNamespaceCase
+    value:           camelCase
+  - key:             readability-identifier-naming.LocalConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.LocalConstantPointerCase
+    value:           camelCase
+  - key:             readability-identifier-naming.LocalPointerCase
+    value:           camelCase
+  - key:             readability-identifier-naming.LocalVariableCase
+    value:           camelCase
+  - key:             readability-identifier-naming.MacroDefinitionCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.MemberCase
+    value:           camelCase
+  - key:             readability-identifier-naming.MethodCase
+    value:           camelCase
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           lower_case
+  - key:             readability-identifier-naming.ParameterCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ParameterPackCase
+    value:           camelCase
+  - key:             readability-identifier-naming.PointerParameterCase
+    value:           camelCase
+  - key:             readability-identifier-naming.PrivateMemberCase
+    value:           camelCase
+  - key:             readability-identifier-naming.PrivateMethodCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ProtectedMemberCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ProtectedMethodCase
+    value:           camelCase
+  - key:             readability-identifier-naming.PublicMemberCase
+    value:           camelCase
+  - key:             readability-identifier-naming.PublicMethodCase
+    value:           camelCase
+  - key:             readability-identifier-naming.ScopedEnumConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.StaticConstantCase
+    value:           camelCase
+  - key:             readability-identifier-naming.StaticVariableCase
+    value:           camelCase
+  - key:             readability-identifier-naming.StructCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TemplateParameterCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TemplateTemplateParameterCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TypeAliasCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TypedefCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TypeTemplateParameterCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.UnionCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ValueTemplateParameterCase
+    value:           camelCase
+  - key:             readability-identifier-naming.VariableCase
+    value:           camelCase
+  - key:             readability-identifier-naming.VirtualMethodCase
+    value:           camelCase
