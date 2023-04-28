@@ -21,6 +21,6 @@ jobs:
     # Check all source and header C++ files;
     # ignore files in the build directory or in hidden directories
     - name: Execute clang-tidy
-      run: find . \( \( -path './build' -o -path '*/.*' \) -prune \) -o \
-        \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \) \
+      run: find . \( \( -path './build' -o -path '*/.*' \) -prune \) -o
+        \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \)
         -exec clang-tidy -p build {} +
