@@ -11,15 +11,15 @@ jobs:
       run: |
           sudo apt-get update -y
           sudo apt-get -y --no-install-recommends install \
-            clang-format='14.*' \
+            clang-format='1:14.*' \
             cmake-format='0.6.*'
     # Check all source and header C++ files; ignore files in hidden directories
     - name: Execute clang-format
-      run: find . \( -path '*/.*' -prune \) -o \
-        \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \) \
+      run: find . \( -path '*/.*' -prune \) -o
+        \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \)
         -exec clang-format --dry-run --Werror {} +
     # Check all cmake files; ignore files in hidden directories
     - name: Execute cmake-format
-      find . \( -path '*/.*' -prune \) -o \
-      \( -type f -a -name 'CMakeLists.txt' \) \
-      -exec cmake-format --check -- {} +
+      run: find . \( -path '*/.*' -prune \) -o
+        \( -type f -a -name 'CMakeLists.txt' \)
+        -exec cmake-format --check -- {} +
