@@ -10,7 +10,9 @@ jobs:
     - name: Install dependencies
       run: |
           sudo apt-get update -y
-          sudo apt-get -y --no-install-recommends cmake='3.22.*' clang-tidy='14.*'
+          sudo apt-get -y --no-install-recommends install \
+            cmake='3.22.*' \
+            clang-tidy='1:14.*'
     - name: Generate compile_commands.json
       run: |
         mkdir -pv build

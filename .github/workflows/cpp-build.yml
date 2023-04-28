@@ -10,7 +10,7 @@ jobs:
     - name: Install dependencies
       run: |
           sudo apt-get update -y
-          sudo apt-get -y --no-install-recommends \
+          sudo apt-get -y --no-install-recommends install \
             cmake='3.22.*' \
             gcc-11='11.*' \
             libboost-program-options-dev='1.74.*' \

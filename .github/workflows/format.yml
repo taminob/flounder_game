@@ -10,7 +10,9 @@ jobs:
     - name: Install dependencies
       run: |
           sudo apt-get update -y
-          sudo apt-get -y --no-install-recommends clang-format='14.*' cmake-format='0.6.*'
+          sudo apt-get -y --no-install-recommends install \
+            clang-format='14.*' \
+            cmake-format='0.6.*'
     # Check all source and header C++ files; ignore files in hidden directories
     - name: Execute clang-format
       run: find . \( -path '*/.*' -prune \) -o \
