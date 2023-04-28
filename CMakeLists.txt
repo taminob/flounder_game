@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
 
 project(flounder_game)
 
@@ -30,5 +30,3 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${DEBUG_FLAGS} ${OPTIMIZE_FLAGS}")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os")
 
 message(STATUS "Compiling in ${CMAKE_BUILD_TYPE} mode")
-
-add_subdirectory(src)
