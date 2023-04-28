@@ -17,9 +17,9 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR})
 set(OPTIMIZE_FLAGS "-O2")
 set(DEBUG_FLAGS "-g3")
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED YES)
-set(CMAKE_CXX_EXTENSIONS YES)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_FLAGS
     "-fsanitize=undefined -pthread -ffast-math -Wall -Wextra -Wno-psabi -pedantic-errors"
@@ -30,3 +30,5 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${DEBUG_FLAGS} ${OPTIMIZE_FLAGS}")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os")
 
 message(STATUS "Compiling in ${CMAKE_BUILD_TYPE} mode")
+
+add_subdirectory(src)
