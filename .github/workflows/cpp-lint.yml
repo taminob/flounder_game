@@ -1,5 +1,4 @@
 name: "C++ Lint"
-description: "Use clang-tidy to lint C++ files"
 
 on: [push, pull_request]
 
