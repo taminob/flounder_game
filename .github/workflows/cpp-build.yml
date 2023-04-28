@@ -7,18 +7,19 @@ jobs:
     name: "gcc build"
     runs-on: ubuntu-22.04
     steps:
-    - name: Install dependencies
-      run: |
-          sudo apt-get update -y
-          sudo apt-get -y --no-install-recommends install \
-            cmake='3.22.*' \
-            gcc-11='11.*' \
-            libboost-program-options-dev='1.74.*' \
-            libfmt-dev='8.*'
-    - name: Execute cmake
-      run: |
-        mkdir -pv build
-        cd build
-        cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-    - name: Execute make
-      run: make -j
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+            sudo apt-get update -y
+            sudo apt-get -y --no-install-recommends install \
+              cmake='3.22.*' \
+              gcc-11='11.*' \
+              libboost-program-options-dev='1.74.*' \
+              libfmt-dev='8.*'
+      - name: Execute cmake
+        run: |
+          mkdir -pv build
+          cd build
+          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+      - name: Execute make
+        run: make -j
