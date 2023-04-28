@@ -1,5 +1,4 @@
 name: "C++/CMake Format"
-description: "Use clang-format and cmake-format to check formatting of C++ and cmake files"
 
 on: [push, pull_request]
 

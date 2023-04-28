@@ -1,5 +1,4 @@
 name: "C++ Build"
-description: "Use GCC to compile the C++ code"
 
 on: [push, pull_request]
 
