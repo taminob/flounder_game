@@ -1,0 +1,25 @@
+name: "C++ Build"
+description: "Use GCC to compile the C++ code"
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    name: "gcc build"
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Install dependencies
+      run: |
+          sudo apt-get update -y
+          sudo apt-get -y --no-install-recommends \
+            cmake='3.22.*' \
+            gcc-11='11.*' \
+            libboost-program-options-dev='1.74.*' \
+            libfmt-dev='8.*'
+    - name: Execute cmake
+      run: |
+        mkdir -pv build
+        cd build
+        cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+    - name: Execute make
+      run: make -j
