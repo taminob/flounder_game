@@ -7,20 +7,21 @@ jobs:
     name: "clang-tidy"
     runs-on: ubuntu-22.04
     steps:
-    - name: Install dependencies
-      run: |
-          sudo apt-get update -y
-          sudo apt-get -y --no-install-recommends install \
-            cmake='3.22.*' \
-            clang-tidy='1:14.*'
-    - name: Generate compile_commands.json
-      run: |
-        mkdir -pv build
-        cd build
-        cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-    # Check all source and header C++ files;
-    # ignore files in the build directory or in hidden directories
-    - name: Execute clang-tidy
-      run: find . \( \( -path './build' -o -path '*/.*' \) -prune \) -o
-        \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \)
-        -exec clang-tidy -p build {} +
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+            sudo apt-get update -y
+            sudo apt-get -y --no-install-recommends install \
+              cmake='3.22.*' \
+              clang-tidy='1:14.*'
+      - name: Generate compile_commands.json
+        run: |
+          mkdir -pv build
+          cd build
+          cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+      # Check all source and header C++ files;
+      # ignore files in the build directory or in hidden directories
+      - name: Execute clang-tidy
+        run: find . \( \( -path './build' -o -path '*/.*' \) -prune \) -o
+          \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \)
+          -exec clang-tidy -p build {} +
