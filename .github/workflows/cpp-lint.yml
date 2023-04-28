@@ -24,4 +24,5 @@ jobs:
       - name: Execute clang-tidy
         run: find . \( \( -path './build' -o -path '*/.*' \) -prune \) -o
           \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \)
+          -exec echo "Linting '{}'..." \;
           -exec clang-tidy -p build {} +

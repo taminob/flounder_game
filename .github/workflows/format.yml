@@ -18,9 +18,11 @@ jobs:
       - name: Execute clang-format
         run: find . \( -path '*/.*' -prune \) -o
           \( -type f -a \( -iname '*.cpp' -o -iname '*.h' \) \)
+          -exec echo "Format checking '{}'..." \;
           -exec clang-format --dry-run --Werror {} +
       # Check all cmake files; ignore files in hidden directories
       - name: Execute cmake-format
         run: find . \( -path '*/.*' -prune \) -o
           \( -type f -a -name 'CMakeLists.txt' \)
+          -exec echo "Format checking '{}'..." \;
           -exec cmake-format --check -- {} +
