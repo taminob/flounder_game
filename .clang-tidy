@@ -2,7 +2,7 @@ Checks: >
         -*,
         clang-diagnostic-*,
         clang-analyzer-optin.*,
-        llvm-*,
+        llvm-*,-llvm-header-guard,
         google-*,-google-readability-todo,-google-readability-braces-around-statements,
         hicpp-*,-hicpp-braces-around-statements,-hicpp-use-emplace,
         misc-*,-misc-no-recursion,
