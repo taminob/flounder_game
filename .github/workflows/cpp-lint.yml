@@ -13,7 +13,8 @@ jobs:
             sudo apt-get update -y
             sudo apt-get -y --no-install-recommends install \
               cmake='3.22.*' \
-              clang-tidy='1:14.*'
+              clang-tidy='1:14.*' \
+              libfmt-dev='8.*'
       - name: Generate compile_commands.json
         run: |
           mkdir -pv build
