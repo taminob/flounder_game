@@ -9,6 +9,16 @@
 
 namespace flounder
 {
+struct OutputManipulator
+{
+    static constexpr const char* RESET = "\033[49m";
+
+    static constexpr const char* RED = "\033[91m";
+    static constexpr const char* GREEN = "\033[92m";
+    static constexpr const char* YELLOW = "\033[93m";
+    static constexpr const char* BLUE = "\033[94m";
+};
+
 template<typename StreamType>
 class BaseOutput
 {
