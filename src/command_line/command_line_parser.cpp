@@ -17,6 +17,7 @@ CommandLineParser::CommandLineParser(std::string program_description,
         this->output = std::make_shared<OutputManager>();
 }
 
+// NOLINTNEXTLINE(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
 CommandLineOptions CommandLineParser::parse(int argc, const char* const argv[])
 {
     return parse({argv, argv + argc});
