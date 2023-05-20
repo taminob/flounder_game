@@ -1,7 +1,8 @@
-#include "output/output_manager.h"
+#include "command_line/command_line_parser.h"
 #include "output/cerr_output.h"
 #include "output/cout_output.h"
 #include "output/file_output.h"
+#include "output/output_manager.h"
 
 #include <chrono>
 #include <iostream>
@@ -22,4 +23,9 @@ std::shared_ptr<flounder::OutputManager> createOutputManager()
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 {
     auto output = createOutputManager();
+
+    auto parser = flounder::CommandLineParser("Flounders are fish.",
+     flounder::CommandLineOptions::generalOptions(),
+     flounder::CommandLineOptions::subcommandsOptions(), output);
+    auto command_line_arguments = parser.parse(argc, argv);
 }
