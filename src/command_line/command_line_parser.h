@@ -24,6 +24,7 @@ public:
      std::map<std::string, OptionsDescription> subcommands_options,
      std::shared_ptr<OutputManager> output = nullptr);
 
+    // NOLINTNEXTLINE(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
     CommandLineOptions parse(int argc, const char* const argv[]);
     CommandLineOptions parse(std::vector<std::string> args);
 
