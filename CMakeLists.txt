@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
 
 project(flounder_game)
 
+option(ENABLE_TESTS "Enable compilation of tests" OFF)
+
 find_package(Boost 1.68.0 REQUIRED COMPONENTS program_options)
 find_package(fmt 8.1.0 REQUIRED)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -39,3 +41,7 @@ set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os")
 message(STATUS "Compiling in ${CMAKE_BUILD_TYPE} mode")
 
 add_subdirectory(src)
+
+if(${ENABLE_TESTS})
+  add_subdirectory(test)
+endif()
