@@ -29,7 +29,9 @@ public:
     BaseOutput(BaseOutput&&) noexcept = default;
     BaseOutput& operator=(const BaseOutput&) = default;
     BaseOutput& operator=(BaseOutput&&) noexcept = default;
-    virtual StreamType& stream() = 0;
+
+    using Stream = StreamType;
+    virtual Stream& stream() = 0;
 
     template<typename Argument>
     BaseOutput& operator<<(Argument&& argument)
