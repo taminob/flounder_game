@@ -2,10 +2,18 @@ cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
 
 project(flounder_game)
 
+find_package(Boost 1.68.0 REQUIRED COMPONENTS program_options)
+find_package(fmt 8.1.0 REQUIRED)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 # if not specified otherwise, build in release mode
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
+
+set(EXECUTABLE_NAME "flounder_game")
+set(LIBRARY_NAME "flounder")
 
 # enable generation of compile_commands.json file
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
