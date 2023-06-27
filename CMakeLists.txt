@@ -4,6 +4,14 @@ project(flounder_game)
 
 option(ENABLE_TESTS "Enable compilation of tests" OFF)
 option(ENABLE_COVERAGE "Enable compilation with test coverage flags" OFF)
+option(ENABLE_ADDRESS_SANITIZE "Enable compilation with address sanitize flags"
+       OFF)
+option(ENABLE_THREAD_SANITIZE "Enable compilation with thread sanitize flags"
+       OFF)
+option(ENABLE_UNDEFINED_SANITIZE
+       "Enable compilation with undefined sanitize flags" OFF)
+option(ENABLE_UNREACHABLE_SANITIZE
+       "Enable compilation with unreachable sanitize flags" OFF)
 
 find_package(Boost 1.68.0 REQUIRED COMPONENTS program_options)
 find_package(fmt 8.1.0 REQUIRED)
@@ -46,6 +54,19 @@ if(${ENABLE_COVERAGE})
       "${CMAKE_SHARED_LINKER_FLAGS} -lgcov -fprofile-arcs -ftest-coverage")
   set(CMAKE_EXE_LINKER_FLAGS
       "${CMAKE_EXE_LINKER_FLAGS} -lgcov -fprofile-arcs -ftest-coverage")
+endif()
+
+if(${ENABLE_ADDRESS_SANITIZE})
+  set(CMAKE_CXX_FLAGS "-fsanitize=address ${CMAKE_CXX_FLAGS}")
+endif()
+if(${ENABLE_THREAD_SANITIZE})
+  set(CMAKE_CXX_FLAGS "-fsanitize=thread ${CMAKE_CXX_FLAGS}")
+endif()
+if(${ENABLE_UNDEFINED_SANITIZE})
+  set(CMAKE_CXX_FLAGS "-fsanitize=undefined ${CMAKE_CXX_FLAGS}")
+endif()
+if(${ENABLE_UNREACHABLE_SANITIZE})
+  set(CMAKE_CXX_FLAGS "-fsanitize=unreachable ${CMAKE_CXX_FLAGS}")
 endif()
 
 message(STATUS "Compiling in ${CMAKE_BUILD_TYPE} mode")
