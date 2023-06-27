@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
 project(flounder_game)
 
 option(ENABLE_TESTS "Enable compilation of tests" OFF)
+option(ENABLE_COVERAGE "Enable compilation with test coverage flags" OFF)
 
 find_package(Boost 1.68.0 REQUIRED COMPONENTS program_options)
 find_package(fmt 8.1.0 REQUIRED)
@@ -37,6 +38,15 @@ set(CMAKE_CXX_FLAGS_DEBUG "${DEBUG_FLAGS}")
 set(CMAKE_CXX_FLAGS_RELEASE "${OPTIMIZE_FLAGS}")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${DEBUG_FLAGS} ${OPTIMIZE_FLAGS}")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os")
+
+if(${ENABLE_COVERAGE})
+  set(CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage ${CMAKE_CXX_FLAGS}")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+  set(CMAKE_SHARED_LINKER_FLAGS
+      "${CMAKE_SHARED_LINKER_FLAGS} -lgcov -fprofile-arcs -ftest-coverage")
+  set(CMAKE_EXE_LINKER_FLAGS
+      "${CMAKE_EXE_LINKER_FLAGS} -lgcov -fprofile-arcs -ftest-coverage")
+endif()
 
 message(STATUS "Compiling in ${CMAKE_BUILD_TYPE} mode")
 
