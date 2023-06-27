@@ -1,0 +1,38 @@
+name: "C++ Unittest"
+
+on: [push, pull_request]
+
+jobs:
+  unittest:
+    name: "unit tests"
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+            sudo apt-get update -y
+            sudo apt-get -y --no-install-recommends install \
+              cmake='3.22.*' \
+              gcc-11='11.*' \
+              libboost-program-options-dev='1.74.*' \
+              libfmt-dev='8.*' \
+              libgmock-dev='1.*' \
+              libgtest-dev='1.*'
+      - name: Execute cmake
+        run: |
+          mkdir -pv build
+          cd build
+          cmake -DENABLE_TESTS=ON \
+            -DENABLE_COVERAGE=ON \
+            -DENABLE_ADDRESS_SANITIZE=ON \
+            -DENABLE_UNDEFINED_SANITIZE=ON \
+            -DENABLE_UNREACHABLE_SANITIZE=ON \
+            ..
+      - name: Execute make
+        run: |
+          cd build
+          make -j
+      - name: Execute tests
+        run: |
+          cd build/test
+          ./tests
